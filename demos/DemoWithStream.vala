@@ -26,7 +26,6 @@ public class DemoWithStream : Gtk.Application {
     public async void window_presented (Gtk.Widget widget) {
         MovingPicture.Gif my_gif;
 
-
         try {
             var session = new Soup.Session ();
             var message = new Soup.Message ("GET", GIF_URL);
