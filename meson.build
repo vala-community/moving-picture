@@ -7,6 +7,8 @@ project('libmovingpicture', 'vala', 'c',
   ],
 )
 
+fs = import('fs')
+
 LIBRARY_NAME = meson.project_name()
 GIR_NAME = 'MovingPicture'
 PROJECT_DESCRIPTION = 'GTK4 GIF Widget Library'
