@@ -39,3 +39,4 @@ config_file = configure_file(
 subdir('src')
 subdir('tests')
 subdir('docs')
+subdir('demos')

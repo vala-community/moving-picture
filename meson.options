@@ -3,3 +3,9 @@ option(
   type: 'boolean',
   value: true
 )
+
+option(
+  'enable_demo',
+  type: 'boolean',
+  value: true
+)
