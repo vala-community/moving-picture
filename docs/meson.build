@@ -11,10 +11,13 @@ if get_option('enable_valadoc')
       '-o', '@OUTPUT@', 
       '--package-name=@0@'.format(LIBRARY_NAME),
       '--package-version=@0@'.format(PROJECT_VERSION),
+      '--pkg', 'gtk4',
+      '--pkg', 'gobject-2.0',
       '--doclet', 'devhelp',
       '@INPUT@',
       '--force'
     ],
+
     install: true,
     install_dir: get_option('datadir') / 'devhelp' / 'books',
     build_by_default: true
