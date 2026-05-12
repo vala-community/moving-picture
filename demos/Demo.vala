@@ -8,7 +8,6 @@ public class Demo : Gtk.Application {
             title = "Basic GTK4 App"
         };
 
-        
         var button = new Gtk.Button.with_label ("Click me!");
         button.clicked.connect (() => {
             button.label = "Thank you";
