@@ -5,14 +5,14 @@ sources = [
   config_file
 ]
 
-libmotionpicture = library(
+libmovingpicture = library(
   LIBRARY_NAME + '-' + API_VERSION,
   sources,
   vala_header: LIBRARY_NAME + '.h',
   vala_vapi: LIBRARY_NAME + '-' + API_VERSION + '.vapi',
   vala_gir: GIR_NAME + '-' + API_VERSION + '.gir',
   soversion: API_VERSION,
-  dependencies : libmotionpicture_deps,
+  dependencies : libmovingpicture_deps,
   vala_args: [
     '--abi-stability'
     ],
@@ -25,10 +25,10 @@ libmotionpicture = library(
   ]
 )
 
-libmotionpicture_dep = declare_dependency(
-  link_with: libmotionpicture,
+libmovingpicture_dep = declare_dependency(
+  link_with: libmovingpicture,
   include_directories: '.',
-  dependencies: libmotionpicture_deps
+  dependencies: libmovingpicture_deps
 )
 
 if g_ir_compiler.found()
@@ -41,14 +41,14 @@ if g_ir_compiler.found()
       meson.current_build_dir() / GIR_NAME + '-' + API_VERSION + '.gir'
     ],
     output: GIR_NAME + '-' + API_VERSION + '.typelib',
-    depends: libmotionpicture,
+    depends: libmovingpicture,
     install: true,
     install_dir: join_paths(get_option('libdir'), 'girepository-1.0')
   )
 endif
 
 pkgconfig.generate(
-  libmotionpicture,
+  libmovingpicture,
   version: API_VERSION,
   name: LIBRARY_NAME,
   filebase: LIBRARY_NAME + '-' + API_VERSION,

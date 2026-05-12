@@ -1,5 +1,5 @@
 void add_foo_tests () {
-    Test.add_func (@"$(MotionPicture.Constants.OBJECT_PATH)/test", () => {
+    Test.add_func (@"$(MovingPicture.Constants.OBJECT_PATH)/test", () => {
         assert ("foo" + "bar" == "foobar");
     });
 }

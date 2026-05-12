@@ -1,5 +1,5 @@
 unit_test_dependencies = [
-    libmotionpicture_deps
+    libmovingpicture_deps
 ]
 
 unit_test_sources = [files('Test.vala'), config_file]

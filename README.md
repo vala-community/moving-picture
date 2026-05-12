@@ -1,4 +1,4 @@
-# motion-picture
+# moving-picture
 
 GTK 4 GIF Widget Library
 
@@ -19,13 +19,13 @@ First, set up the build directory by running the following command in the projec
 meson setup build --prefix=/usr
 ```
 
-Build motion-picture (you need to run this in the project root):
+Build moving-picture (you need to run this in the project root):
 
 ```sh
 meson compile -C build
 ```
 
-To install motion-picture (you need to run this in the project root):
+To install moving-picture (you need to run this in the project root):
 
 ```sh
 meson install -C build
