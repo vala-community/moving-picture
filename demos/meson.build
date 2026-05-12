@@ -1,15 +1,23 @@
 if get_option('enable_demo')
   demo_dependencies = [
       libmovingpicture_dep,
-      dependency('gtk4')
+      dependency('gtk4'),
+      dependency('libsoup-3.0'),
   ]
 
-  demo_sources = [files('Demo.vala')]
+  path_demo_sources = [files('DemoWithPath.vala')]
+  stream_demo_sources = [files('DemoWithStream.vala')]
 
-  # Create executable for unit tests
-  demo_exe = executable(
-      LIBRARY_NAME + '-demo',
-      demo_sources,
+  # Create exectuables for demos
+  path_demo_exe = executable(
+      LIBRARY_NAME + '-demo-with-path',
+      path_demo_sources,
+      dependencies: demo_dependencies,
+  )
+
+  stream_demo_exe = executable(
+      LIBRARY_NAME + '-demo-with-stream',
+      stream_demo_sources,
       dependencies: demo_dependencies,
   )
 

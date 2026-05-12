@@ -1,41 +1,39 @@
-public class MovingPicture.Gif : Gtk.DrawingArea {
+public class MovingPicture.Gif : Gtk.Widget {
+    public MovingPicture.GIFPaintable paintable { private get; construct; }
+    private Gtk.Picture _picture;
+
+    class construct {
+        set_layout_manager_type (typeof (Gtk.BinLayout));
+    }
+
     construct {
-        hexpand = true;
-        vexpand = true;
-    }
-    
-    private Gdk.Pixbuf pixbuf;
-    private Gdk.PixbufAnimation anim;
-    private Gdk.PixbufAnimationIter iter;
-
-    public int width {private set; get;}
-    public int height {private set; get;}
-
-    public Gif (string location) throws Error {
-        anim = new Gdk.PixbufAnimation.from_file (location);
-        pixbuf = anim.get_static_image ();
-        width = anim.get_width ();
-        height = anim.get_height ();
-        set_size_request (width, height);
-        set_draw_func (drawing);
-        iter = anim.get_iter(null);
-        
-        var idle_id = GLib.Timeout.add (10, () => {
-            iter.advance (null);
-            pixbuf = iter.get_pixbuf ();
-            queue_draw ();
-            return true;
-        });
-
-        GLib.Application.get_default ().shutdown.connect (()=> {
-            Source.remove (idle_id);
-        });
-
+        _picture = new Gtk.Picture.for_paintable (paintable);
+        _picture.set_parent (this);
     }
 
-    private void drawing (Gtk.DrawingArea drawing_area, Cairo.Context ctx, int width, int height)
-    {
-        Gdk.cairo_set_source_pixbuf (ctx, pixbuf, 0, 0); 
-        ctx.paint();
+    public MovingPicture.Gif.from_path (string path) throws Error {
+        Object (
+            paintable: new MovingPicture.GIFPaintable.from_path (path)
+        );
     }
+
+    public MovingPicture.Gif.from_stream (GLib.InputStream stream, GLib.Cancellable? cancellable) throws Error {
+
+        Object (
+            paintable: new MovingPicture.GIFPaintable.from_stream (stream, cancellable)
+        );
+    }
+
+    public async MovingPicture.Gif.from_stream_async (GLib.InputStream stream, GLib.Cancellable? cancellable) throws Error {
+        Object (
+            paintable: yield new MovingPicture.GIFPaintable.from_stream_async (stream, cancellable)
+        );
+    }
+
+    ~Gif () {
+        if (_picture != null) {
+            _picture.unparent ();
+        }
+    }
+   
 }

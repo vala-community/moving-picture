@@ -1,6 +1,6 @@
-public class Demo : Gtk.Application {
-    public Demo () {
-        Object (application_id: "com.movingpicture.Demo");
+public class DemoWithPath : Gtk.Application {
+    public DemoWithPath () {
+        Object (application_id: "com.movingpicture.DemoWithPath");
     }
 
     public override void activate () {
@@ -13,9 +13,9 @@ public class Demo : Gtk.Application {
         MovingPicture.Gif my_gif;
 
         try {
-            my_gif = new MovingPicture.Gif ("dancing-banana.gif");            
+            my_gif = new MovingPicture.Gif.from_path ("dancing-banana.gif");
         } catch (GLib.Error e) {
-            error ("Could not find \"dancing-banana.gif\".\nMake sure that you are running the program in the same directory as \"dancing-banana.gif\"");
+            error ("Make sure that you are running the program in the same directory as \"dancing-banana.gif\"\nError: %s", e.message);
         }
 
         my_gif.halign = Gtk.Align.CENTER;
@@ -31,7 +31,7 @@ public class Demo : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        var app = new Demo ();
+        var app = new DemoWithPath ();
         return app.run (args);
     }
 }

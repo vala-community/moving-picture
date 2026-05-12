@@ -1,6 +1,7 @@
 sources = [
   files([
-    'Gif.vala'
+    'Gif.vala',
+    'GifPaintable.vala',
   ]),
   config_file
 ]
