@@ -1,6 +1,6 @@
 # motion-picture
 
-GTK4 GIF Widget Library
+GTK 4 GIF Widget Library
 
 ## Build Instructions
 
