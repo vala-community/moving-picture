@@ -10,6 +10,8 @@ GTK 4 GIF Widget Library
 - [ninja](https://ninja-build.org/)
 - glib-2.0
 - gobject-2.0
+- gtk4
+- libsoup-3.0 (Optional - Used for demos)
 
 ### Build Commands
 

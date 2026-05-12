@@ -1,7 +1,6 @@
 if get_option('enable_demo')
   demo_dependencies = [
       libmovingpicture_dep,
-      dependency('gtk4'),
       dependency('libsoup-3.0'),
   ]
 

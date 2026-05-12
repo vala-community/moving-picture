@@ -27,7 +27,6 @@ libmovingpicture_deps = [
   dependency('glib-2.0'),
   dependency('gobject-2.0'),
   dependency('gtk4'),
-  dependency('cairo'),
 ]
 
 config_data = configuration_data()
