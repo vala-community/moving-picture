@@ -21,7 +21,6 @@ public class Demo : Gtk.Application {
         var root_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 4);
         root_box.append (my_gif);
 
-
         window.child = root_box;
         window.present ();
     }
